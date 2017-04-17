@@ -5,6 +5,29 @@
 	<title>Document</title>
 </head>
 <body>
-	sss
+	<img src="">
 </body>
+<script>
+	
+	window.loca=function(){
+		var imgs=document.getElementByTagName("img");
+		for(var i=0;i<imgs.length;i++){
+			var img_cot=imgs[i];
+			if(img_cot.addEventListener){
+				img_cot.addEventListener("click",hide,false);
+			}else{
+				//兼容ie8以前的点击
+				img_cot.attachEvent("onclick",hide);
+			}
+		}
+		function hide(event){event.target.style.visibility='hidden'};
+	}
+	function hide(e,reflow){
+		if(reflow){
+			e.style.display="none"
+		}else{
+			e.style.visibility='hidden'
+		}
+	}
+</script>
 </html>
