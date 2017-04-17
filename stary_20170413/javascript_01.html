@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript基础篇01</title>
+</head>
+<body>
+	<!-- javscript对象和数组是很重要 
+		01.对象是名值对的
+	-->
+
+</body>
+<script>
+	//创建对象
+	var person={name:'leon',sex:'boy'}
+	//访问对象
+	console.log(person.name);
+	//添加对象
+	person.hobby='足球';
+	//创建空对象
+	person.cot={};
+	console.log(person)
+
+
+	//数组对象
+	var place=[
+		{x:6,y:5},
+		{x:10,y:10}
+	]
+	//一个包含两个属性的对象
+	var data={
+		data01:[[0,0],[10,10]],
+		data02:[[20,20],[50,50]]
+	}
+	// operator
+	console.log(place[0].x-place[1].y)
+	//statement  语句
+	//control structure 控制语句
+	// 条件语句或者循环
+	
+	//函数 
+	//对象和函数一样
+	function sun(x){
+		return x++;
+	}
+	function result(x){
+			return  x--;
+	}
+	console.log(result(sun(1)))
+	//函数和对象写在一起的话称为方法(所有javascript对象都含有方法)
+
+	//自定义方法
+	place.dist=function(){
+		var p1=this[0];
+		var p2=this[1];
+		var resultA=p2.x-p1.x;
+		var resultB=p2.y-p1.y;
+		return {resultA,resultB};
+	}
+	console.log(place.dist())
+	//面向对象  实例化对象
+	//构造函数
+	function Point(x,y){
+		this.x=x,
+		this.y=y
+	}
+	// 构造函数的prototype对象赋值 给对象定义方法
+	var obj=new Point(1,1);
+	Point.prototype.r=function(){
+		//开方
+		return Math.sqrt(this.x*this.x+this.y+this.y)
+	};
+	console.log(obj.r());
+	//询问客户端
+	function moven(){
+		//通过弹出来询问客户
+		var aswer=confirm("ok?")
+		if(aswer)window.location='http://taobao.com';
+	}
+	//setTimeout(moven,600);
+
+</script>
+</html>
