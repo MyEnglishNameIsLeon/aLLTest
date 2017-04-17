@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.layout {
+				width: 251px;
+				height: 250px;
+				border: 1px solid #6495ED;
+				margin: 100px auto;
+			}
+			
+			ul {
+				float: left;
+				overflow: hidden;
+				border-right: 1px solid #6495ED;
+			}
+			
+			ul li {
+				height: 50px;
+				width: 50px;
+				text-align: center;
+				line-height: 50px;
+				font-size: 14px;
+				border-bottom: 1px solid #6495ED;
+				background: #FFCCFF;
+			}
+			
+			ul li:last-child {
+				border-bottom: none;
+				height: 46px;
+			}
+			
+			ol li {
+				float: right;
+				display: none;
+			}
+			
+			.curclass {
+				display: block;
+			}
+			
+			img {
+				display: block;
+			}
+			
+			.curli {
+				background: red url(img/taobao/abg.gif) repeat-x;
+				height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="layout">
+			<ul>
+				<li class="curli"><a href="#">毛衣</a></li>
+				<li><a href="#">登山鞋</a></li>
+				<li><a href="#">男棉服</a></li>
+				<li><a href="#">男毛衣</a></li>
+				<li><a href="#">围巾</a></li>
+			</ul>
+			<ol>
+				<li class="curclass">
+					<a href="#"><img src="img/taobao/毛衣.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/taobao/登山鞋.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/taobao/男棉服.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/taobao/男毛衣.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/taobao/围巾.jpg" /></a>
+				</li>
+			</ol>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				var time, count = 0;
+
+				function ceplay() {
+					count++;
+					if (count > $("ol li").length - 1) {
+						count = 0;
+					}
+					console.log(count)
+					$("ol li").eq(count).addClass("curclass").siblings().removeClass("curclass");
+					$("ul li").eq(count).addClass("curli").siblings().removeClass("curli");
+				}
+				time = setInterval(ceplay, 2000);
+				$("ul li").hover(function() {
+					clearInterval(time);
+					$(this).addClass("curli").siblings().removeClass("curli");
+					$("ol li").eq($(this).index()).addClass("curclass").siblings().removeClass("curclass");
+					count = $(this).index();
+				}, function() {
+					time = setInterval(ceplay, 2000);
+				})
+			})
+		</script>
+	</body>
+
+</html>

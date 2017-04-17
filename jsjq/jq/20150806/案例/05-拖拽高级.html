@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.box{ width:1000px;height:400px; background:#ccc; border:1px solid #000; margin:100px auto; position:relative;}
+.box span{ width:100px;height:100px; background:#fcf;border:1px solid #000; position:absolute; left:0; top:0;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var kaiguan;
+	$('.box span').mousedown(function(e) {
+        kaiguan = 'kai';
+    });
+	$(window).mouseup(function(e) {
+        kaiguan = 'guan';
+    });
+	
+	
+	
+	
+	$(window).mousemove(function(e) {
+        if( kaiguan == 'kai'){
+			var x =e.pageX-$('.box').offset().left-50;
+			var y =e.pageY-$('.box').offset().top-50;
+			if(x<0){x=0}
+			if(y<0){y=0}
+			if(x>$('.box').width()-102){x=$('.box').width()-102}
+			if(y>$('.box').height()-102){y=$('.box').height()-102}
+			
+			$('.box span').css({'left':x,'top':y})	
+		}
+		
+		
+    });		
+})
+</script>
+</head>
+
+<body>
+<div class="box">
+	<span></span>
+</div>
+</body>
+</html>

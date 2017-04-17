@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+
+div{width:100px; height:100px; background:#0FF; border:1px solid #000; position:absolute;left:300px; top:20px; }
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+ $(function(){
+	$('button').click(function(){
+		$('div').animate({'border-radius':100},700).animate({'top':300},400).animate({'top':100},300).animate({'top':300},300).animate({'top':200},300).animate({'top':300},300).animate({'top':250},300).animate({'top':300},300)
+    })	 
+})
+
+
+</script>
+</head>
+
+<body>
+<button>动画</button>
+<div></div>
+</body>
+</html>

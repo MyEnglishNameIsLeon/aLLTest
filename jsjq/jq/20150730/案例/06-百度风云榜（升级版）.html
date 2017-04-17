@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0; list-style:none}
+.box{ width:100px;background:#0066ff; border:1px solid #000; margin:100px auto; padding:10px; color:#fff; cursor:pointer;}
+span{ background:url(img/close.gif) no-repeat left center; padding-left:20px;}
+.box ul li{ padding-left:20px;}
+.box ul{ display:none;}
+
+/*.box li.current ul{ display:block;}*/
+.box li.current span{ background:url(img/open.gif) no-repeat left center;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+		
+	$('span').click(function(e) {
+        $(this).parent().toggleClass('current').siblings().removeClass('current')
+		
+		$(this).siblings().slideToggle(300).parent().siblings().children('ul').slideUp(300);
+    });	
+	
+})
+</script>
+</head>
+
+<body>
+<ul class="box">
+	<li>
+    	<span>事件</span>
+        <ul>
+        	<li>最近</li>
+        	<li>上周</li>
+        	<li>上月</li>
+        </ul>
+    </li>
+    <li>
+    	<span>事件</span>
+        <ul>
+        	<li>最近</li>
+        	<li>上周</li>
+        	<li>上月</li>
+        </ul>
+    </li>
+    <li>
+    	<span>事件</span>
+        <ul>
+        	<li>最近</li>
+        	<li>上周</li>
+        	<li>上月</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.layout {
+				position: relative;
+				width: 650px;
+				height: 250px;
+				margin: 100px auto;
+				overflow: hidden;
+			}
+			
+			ol {
+				position: absolute;
+				bottom: 20px;
+				right: 10px;
+				z-index: 2;
+			}
+			
+			ol li {
+				width: 15px;
+				height: 15px;
+				border: 1px solid #000;
+				margin-right: 10px;
+				text-align: center;
+				line-height: 15px;
+				float: left;
+				background: #6495ED
+			}
+			
+			ul {
+				position: relative;
+				z-index: 1;
+			}
+			
+			ul li {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			img {
+				display: block;
+				border: 0;
+			}
+			
+			.curli {
+				width: 20px;
+				height: 20px;
+				margin-top: -2.5px;
+				background: #CCCCCC;
+			}
+			
+			.curban {
+				z-index: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="layout">
+			<ul>
+
+				<li class="curban"><img src="img/01.jpg" alt="" /></li>
+				<li><img src="img/02.jpg" alt="" /></li>
+				<li><img src="img/03.jpg" alt="" /></li>
+				<li><img src="img/04.jpg" alt="" /></li>
+				<li><img src="img/05.jpg" alt="" /></li>
+			</ul>
+			<ol>
+				<li class="curli">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				var time = 0,
+					count = 0,
+					zindex = 0;
+
+				function zBanner() {
+					zindex++;
+					count++;
+					if (count > $("ul li").length - 1) {
+						count = 0;
+					}
+					$(".layout ul li").eq(count).css({
+						"left": 650,
+						"z-index": zindex
+					}).animate({
+						"left": 0
+					}, 1000);
+					$("ol li").eq(count).addClass("curli").siblings().removeClass("curli");
+				}
+				$("ol li").click(function() {
+					zindex++;
+					$(this).addClass("curli").siblings().removeClass("curli");
+					$(".layout ul li").eq($(this).index()).css({
+						"left": 650,
+						"z-index": zindex
+					}).animate({
+						"left": 0
+					}, 1000);
+					count = $(this).index();
+				}).mouseenter(function() {
+					clearInterval(time);
+				}).mouseleave(function() {
+					time = setInterval(zBanner, 2000);
+				})
+				time = setInterval(zBanner, 2000);
+			})
+		</script>
+	</body>
+
+</html>

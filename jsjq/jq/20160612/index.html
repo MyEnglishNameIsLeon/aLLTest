@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>插入节点</title>
+		
+	</head>
+	<body>
+		<button onclick="clicks(this)">插入节点</button>
+		<div class="fu"></div>
+	</body>
+	<script type="text/javascript" src="Jvs/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+		function clicks(obj){
+				$(".fu").before("<a>ddd</a>")
+				$("<span>111</span>").insertBefore($(".fu"))				
+		}
+		</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none;}
+body{ background:#000;}
+img{ display:block;}
+div{ width:600px;height:200px; overflow:hidden; background:#000; margin:100px auto; position:relative;}
+ul{ width:9999px; position:absolute; left:0;top:0;}
+li{ float:left; cursor:pointer;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	var num = 0;
+	var timer;
+	
+	function run(){
+		num = num-2;
+		
+		if(num<-1200){
+			num=0
+		}
+		
+		$('ul').css('left',num)
+		
+		
+	}
+	
+	timer = setInterval(run,15)
+	
+	
+	$('li').mouseenter(function(e) {
+        clearInterval(timer)
+		$(this).siblings().stop().fadeTo(400,0.5)
+		
+    }).mouseleave(function(e) {
+		
+		$(this).siblings().stop().fadeTo(400,1)
+        timer = setInterval(run,15)
+	
+    });
+	
+
+})
+</script>
+</head>
+
+<body>
+<div>
+	<ul>
+    	<li><img src="img/wufeng/01.jpg" width="300" height="200" /></li>
+        <li><img src="img/wufeng/02.jpg" width="300" height="200" /></li>
+        <li><img src="img/wufeng/03.jpg" width="300" height="200" /></li>
+        <li><img src="img/wufeng/04.jpg" width="300" height="200" /></li>
+        <li><img src="img/wufeng/01.jpg" width="300" height="200" /></li>
+        <li><img src="img/wufeng/02.jpg" width="300" height="200" /></li>
+    </ul>
+</div>
+</body>
+</html>

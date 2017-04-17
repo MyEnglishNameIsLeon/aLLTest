@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<form action="" method="post">
+			<input type="text" name="" id="" value="新浪" />
+			<input type="text" name="" id="" value="新浪2" />
+			<input type="text" name="" id="" value="新浪3" />
+			<input type="text" name="" id="" value="新浪4" />
+			<input type="text" name="" id="" value="新浪5" />
+			<br/>
+			<input type="submit" value="确认" />
+		</form>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				var arr = [];
+				$("input").each(function(ind, elem) {
+					arr.push($(elem).val());
+				})
+				$("input").focus(function(e) {
+					var curind = $(this).index();
+					if ($(this).val() == arr[curind]) {
+						$(this).val("");
+					}
+				}).blur(function() {
+					if ($(this).val() == "") {
+						$(this).val(arr[$(this).index()]);
+					}
+				})
+			})
+		</script>
+	</body>
+
+</html>

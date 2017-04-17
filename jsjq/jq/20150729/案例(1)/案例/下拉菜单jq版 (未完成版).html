@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>下拉菜单jq版本</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.nav {
+				width: 340px;
+				height: 30px;
+				background: url(img/bg.jpg) no-repeat;
+				margin: 100px auto 0;
+				line-height: 30px;
+				text-align: center;
+				padding-left: 10px;
+			}
+			
+			.nav li {
+				width: 100px;
+				height: 30px;
+				background: url(img/libg.jpg) no-repeat;
+				float: left;
+				margin-right: 10px;
+				cursor: pointer;
+				position: relative;
+			}
+			
+			.nav li ul {
+				position: absolute;
+				left: 0;
+				top: 30px;
+				display: none;
+			}
+			
+			.con {
+				width: 1000px;
+				height: 300px;
+				background: #fcf;
+				margin: 0 auto;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				/*$('.nav>ul>li').mouseover(function(e) {
+    	$(this).children().stop().slideToggle(300);
+    }).mouseout(function(e) {
+    	$(this).children().stop().slideToggle(300);
+    });*/
+				$('.nav>ul>li').hover(function() {
+					$(this).children().stop().slideToggle(300);
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="nav">
+			<ul>
+				<li>一级菜单
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li>一级菜单
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li>一级菜单
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="con"></div>
+	</body>
+
+</html>

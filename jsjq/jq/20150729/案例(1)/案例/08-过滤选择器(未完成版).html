@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>无标题文档</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('button:eq(0)').click(function(e) {
+					$('li:first').css('background', '#fcf')
+				});
+				$('button:eq(1)').click(function(e) {
+					$('li:last').css('background', '#fcf')
+				});
+				$('button:eq(2)').click(function(e) {
+					$('li:not(:last)').css('background', '#fcf')
+				});
+				$('button:eq(3)').click(function(e) {
+					$('li:not(:eq(1))').css('background', '#fcf')
+				});
+				$('button:eq(4)').click(function(e) {
+					$('li:even').css('background', '#fcf')
+				});
+				$('button:eq(5)').click(function(e) {
+					$('li:odd').css('background', '#fcf')
+				});
+				$('button:eq(6)').click(function(e) {
+					$('li:gt(4)').css('background', '#fcf')
+				});
+				$('button:eq(7)').click(function(e) {
+					$('li:lt(4)').css('background', '#fcf')
+				});
+				$('button:eq(8)').click(function(e) {
+					$('li:eq(4)').css('background', '#fcf')
+				});
+			})
+		</script>
+
+	</head>
+
+	<body>
+		<button>选择第一个li</button>
+		<button>选择最后一个li</button>
+		<button>选择所有li排除最后一个</button>
+		<button>选择所有li排除第二个</button>
+		<button>选择所有索引值为偶数个li</button>
+		<button>选择所有索引值为奇数个li</button>
+		<button>选择大于第5个的li</button>
+		<button>选择小于第5个的li</button>
+		<button>选择等于第5个的li</button>
+		<ul>
+			<li>这是一个li</li>
+			<li>这是一个li</li>
+			<li>这是一个li</li>
+			<li>这是一个li</li>
+			<li>这是一个li</li>
+			<li>这是一个li</li>
+			<li>这是一个li</li>
+			<li>这是一个li</li>
+			<li>这是一个li</li>
+			<li>这是一个li</li>
+		</ul>
+	</body>
+
+</html>

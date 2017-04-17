@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none;}
+img{ display:block; border:0;}
+.banner{ width:650px;height:250px; background:red; border:1px solid #000; margin:100px auto;position:relative; overflow:hidden;}
+.banner ul{ position:relative; z-index:1;}
+.banner ul li{ position:absolute;}
+.banner ol{ position:absolute; right:10px; bottom:10px; z-index:2;}
+.banner ol li{ float:left; margin-left:8px; width:20px;height:20px; background:#333333; border:1px solid #CCCCCC; color:#999999; line-height:20px ; text-align:center; font-weight:bold; cursor:pointer;}
+.banner ol li.current{ width:30px;height:30px; border:1px solid #fcf; color:#fcf; line-height:30px; font-size:20px; margin-top:-10px;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	var num = 4;
+	var timer;
+	
+	var myzindex = 1;
+	$('.banner ol li').mouseenter(function(e) {
+		
+		
+		if(!$(this).hasClass('current')){ 
+			//角标的工作
+			$(this).addClass('current').siblings().removeClass('current')
+			
+			//大图的工作
+			myzindex++;
+			$('.banner ul li').eq($(this).index()).css({'left':650,'z-index':myzindex}).animate({'left':0},400)
+			
+			num = $(this).index();
+		}
+    });
+	
+	
+	function autoplay(){
+		num++;
+		if(num>4){
+			num=0
+		}
+		myzindex++;
+		$('.banner ul li').eq(num).css({'left':650,'z-index':myzindex}).animate({'left':0},400,'easeOutElastic');
+		
+		$('.banner ol li').eq(num).addClass('current').siblings().removeClass('current')
+		
+	}
+
+	timer = setInterval(autoplay,2000)
+	
+	$('.banner').hover(function(){
+		clearInterval(timer)
+	},function(){
+		timer = setInterval(autoplay,2000)
+	})
+})
+</script>
+
+</head>
+
+<body>
+<div class="banner">
+	<ul>
+    	<li><a href="#"><img src="img/01.jpg" width="650" height="250" /></a></li>
+        <li><a href="#"><img src="img/02.jpg" width="650" height="250" /></a></li>
+        <li><a href="#"><img src="img/03.jpg" width="650" height="250" /></a></li>
+        <li><a href="#"><img src="img/04.jpg" width="650" height="250" /></a></li>
+        <li><a href="#"><img src="img/05.jpg" width="650" height="250" /></a></li>
+    </ul>
+    <ol>
+    	<li>1</li>
+    	<li>2</li>
+    	<li>3</li>
+    	<li>4</li>
+    	<li class="current">5</li>
+    </ol>
+</div>
+</body>
+</html>

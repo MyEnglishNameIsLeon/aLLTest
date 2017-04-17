@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			body {
+				background: #000;
+			}
+			
+			ul {
+				width: 630px;
+				padding: 10px 0 0 10px;
+				border: 1px solid #fff;
+				margin: 100px auto;
+				overflow: hidden;
+			}
+			
+			li {
+				float: left;
+				height: 186px;
+				margin: 0 10px 10px 0;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('li').mouseenter(function(e) {
+					$(this).siblings().stop().fadeTo(500, 0.5)
+				}).mouseleave(function(e) {
+					$('li').stop().fadeTo(500, 1)
+				}).click(function(e) {
+					$(this).children().stop().slideUp(300).slideDown(300)
+				});;
+			})
+		</script>
+	</head>
+
+	<body>
+		<ul>
+			<li><img src="img/fade/01.jpg" width="200" height="186" /></li>
+			<li><img src="img/fade/02.jpg" width="200" height="186" /></li>
+			<li><img src="img/fade/03.jpg" width="200" height="186" /></li>
+			<li><img src="img/fade/04.jpg" width="200" height="186" /></li>
+			<li><img src="img/fade/05.jpg" width="200" height="186" /></li>
+			<li><img src="img/fade/06.jpg" width="200" height="186" /></li>
+		</ul>
+	</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h1>AJAX</h1>
+		<button onclick="AJAXway()">click</button>
+		<p id="textShow"></p>
+		<script type="text/javascript">
+			function AJAXway() {
+				var xmlhttp;
+				if (window.XMLHttpRequest) {
+					xmlhttp = new XMLHttpRequest();
+				} else {
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
+						document.getElementById("textShow").innerHTML = xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET", "success02.html?fname=Bill&lname=Gate", true);
+				xmlhttp.send();
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{width:100px;float:left;margin:0 auto;background: #f40;height: 100px;}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+			
+		</script>
+		<script type="text/javascript">
+			//试题
+			//array  split函数将分割后的结果存入字符串中  string的分割
+			function splitStr(str){
+				var strArray=str.split(';');
+				return strArray;
+			}
+			console.log(  splitStr('1112;223;666'));
+			//array substr
+			var currentStr="46541231232adasduyiu;dasnd;12";
+			console.log(currentStr.substr(0,currentStr.length-2));
+			//array conctat 
+			var arr=new Array();
+			arr[0]="a";
+			arr[1]="b";
+			var arr02=new Array();
+			arr02[0]=21;
+			arr02[1]=22;
+			var arr03=new Array();
+			arr03[0]=31;
+			arr03[1]=32;
+			arr=arr.concat(arr02,arr03,new Array("1",2,32));
+			console.log(arr);
+			console.log(typeof arr);
+			//array join 用于把数组中的所有元素放入一个字符串 链接符
+			var arr=new Array(3);
+			arr[0]='11';
+			arr[1]='12';
+			arr[2]='13';
+			console.log(arr.join('66'))
+			//pop和push配合使用  删除并返回数组中最后一个元素  （后进先出：）
+			//push 删除队伍中最后一个元素
+			//reverse 次序调转
+			var arr02=new Array();
+			arr[0]=1;
+			arr[1]="a";
+			arr[2]=3;
+			arr[3]=true;
+			console.log(arr.reverse());
+			//shift 删除并返回数组第一个元素  不包含下标0
+			//Slice 从某个已有的数组返回选定的元素
+			var arrSlice=[1,2,3,4,5,6];
+			arrSlice=arrSlice.slice(1,5);
+			console.log('arr'+arrSlice)
+			//sort 排序 	对数组的元素进行排序 从小到大
+			var arr=[1,5,"a","6","c",6];
+			var arr=[1,2,3,6,5,4];
+			arr=arr.sort();
+			console.log(arr)
+			//splice   方法向/从数组中添加/删除项目，然后返回被删除的项目  splice(下标值，替换几个，内容)
+			arr=["1",2,3,4,5,"6","7"];
+			arr.splice(2,4,"666");//直接发生改变直接操作数组
+			console.log(arr)
+			//unshift 开头添加一个或者更多的元素  shift开头删除一个
+			var arr=[1,2,3,4];
+			arr.push("a",8);
+			arr.unshift("6",6)
+			arr.shift();
+			console.log(arr)
+			
+			//属性使您有能力向对象添加属性和方法  prototype
+			Array.prototype.quchong=function(){
+				var res=[];
+				var json={};
+				for(var i=0;i<this.length;i++){
+					if(!json[this[i]]){
+						res.push(this[i]);
+						json[this[i]]=true;
+					}
+				}
+				return res;
+			}
+			var arr=[1,2,3,4,5,5,5,,6,8];
+			console.log(arr.quchong());
+			//冒泡排序
+			var arr=[1,32,65,656,147,213,21];
+			for(var i=0;i<arr.length-1;i++){
+				for(var j=0;j<arr.length-i-1;j++){
+					if(arr[i]>arr[j+1]){
+						var sw=arr[j+1];
+						arr[j+1]=arr[i];
+						arr[i]=sw;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

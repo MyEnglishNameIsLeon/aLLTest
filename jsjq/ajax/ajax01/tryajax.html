@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.bigBox {
+				display: table;
+			}
+			
+			.row {
+				display: table-row;
+			}
+			
+			.col {
+				display: table-cell;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<form action="success.php" method="get">
+			<div class="bigBox">
+				<div class="row">
+					<div class="col">
+						<lable for="user">用户名：</lable>
+					</div>
+					<div class="col">
+						<input type="text" name="" id="user" value="" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<lable for="user">密码：</lable>
+					</div>
+					<div class="col">
+						<input type="password" name="" id="password" value="" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<lable for="user">textarea：</lable>
+					</div>
+					<div class="col">
+						<textarea name="" rows="5" cols="17" id="content"></textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<lable for="user">hobby：</lable>
+					</div>
+					<div class="col">
+						<input type="radio" name="sex" id="boy" value="boy" checked="true" />男
+						<input type="radio" name="sex" id="gril" value="girl" />女
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<lable for="user">checkbox：</lable>
+					</div>
+					<div class="col">
+						<input type="checkbox" name="sex" id="sleep" value="sleep" />睡觉
+						<input type="checkbox" name="sex" id="football" value="football" />足球
+						<input type="checkbox" name="sex" id="kick" value="kickPlace" />踢馆
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<input type="submit" name="" id="" value="提交" onclick="btn_get_click()" />
+					</div>
+					<div class="col">
+						<input type="reset" name="" id="" value="重置" />
+					</div>
+				</div>
+			</div>
+
+		</form>
+		<div id="result"></div>
+		<script type="text/javascript" src="js/ajax.js">
+		</script>
+	</body>
+
+</html>

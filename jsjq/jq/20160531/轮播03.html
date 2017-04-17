@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			img {
+				display: block;
+				border: 0;
+			}
+			
+			.border {
+				width: 490px;
+				height: 170px;
+				border: 1px solid #222222;
+				padding: 5px;
+				margin: 100px auto;
+				position: relative;
+			}
+			
+			.neibu {
+				height: 170px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			ul {
+				position: absolute;
+				left: 0;
+				top: 0
+			}
+			
+			ol {
+				position: absolute;
+				right: 5px;
+				bottom: 5px;
+			}
+			
+			ol li {
+				float: left;
+				width: 20px;
+				height: 20px;
+				border: 1px solid #222222;
+				text-align: center;
+				line-height: 20px;
+				background: #fff;
+				margin-left: 5px;
+			}
+			
+			.curli {
+				background: #f40;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="border">
+			<div class="neibu">
+				<ul>
+					<li><img src="img/taobao/01.jpg" alt="" /></li>
+					<li><img src="img/taobao/02.jpg" alt="" /></li>
+					<li><img src="img/taobao/03.jpg" alt="" /></li>
+					<li><img src="img/taobao/04.jpg" alt="" /></li>
+					<li><img src="img/taobao/05.jpg" alt="" /></li>
+				</ul>
+				<ol>
+					<li class="curli">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ol>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				var num = 0,
+					time = 0;
+
+				function autoplay() {
+					num++;
+					if (num > 4) {
+						num = 0;
+					}
+					$("ul").stop().animate({
+						"top": num * -170
+					}, 200);
+					$("ol li").eq(num).addClass("curli").siblings().removeClass("curli");
+				}
+				time = setInterval(autoplay, 3000)
+				$("ol li").mouseenter(function() {
+					clearInterval(time);
+					$(this).stop().addClass("curli").siblings().removeClass("curli");
+					$("ul").stop().animate({
+						"top": $(this).index() * -170
+					}, 200);
+					num = $(this).index();
+				}).mouseleave(function() {
+					time = setInterval(autoplay, 3000)
+				})
+			})
+		</script>
+	</body>
+
+</html>

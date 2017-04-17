@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			div {
+				width: 600px;
+				height: 300px;
+				background: #fcf;
+				border: 1px solid #000;
+				padding: 10px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('button:eq(0)').click(function(e) {
+					$('div:eq(0)').html('<h1>李晨老师是一个优秀的设计狮。</h1><p>他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个</p>')
+				});
+				$('button:eq(1)').click(function(e) {
+					alert($('div:eq(0)').html());
+				});
+				$('button:eq(2)').click(function(e) {
+					alert($('div:eq(0)').text());
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<button>修改html文本</button>
+		<button>访问内部html文本</button>
+		<button>访问内部文字文本</button>
+		<div>李晨老师是一个优秀的设计狮。他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个他做过很多很多优秀的事情，比如这个比如那个</div>
+	</body>
+
+</html>

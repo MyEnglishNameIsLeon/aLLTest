@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background:#000;
+			}
+			.border {
+				width: 350px;
+				height: 200px;
+				border: 1px solid #FF4400;
+				margin: 200px auto;
+				overflow: hidden;
+			}
+			
+			ul {
+				width: 5000px;
+				position: relative;
+			}
+			
+			ul li {
+				float: left;
+				list-style: none;
+				position: relative;
+				left: 0;
+				top: 0;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="border">
+			<ul>
+				<li><img src="js/img/wufeng/01.jpg" /></li>
+				<li><img src="js/img/wufeng/02.jpg" /></li>
+				<li><img src="js/img/wufeng/03.jpg" /></li>
+				<li><img src="js/img/wufeng/04.jpg" /></li>
+				<li><img src="js/img/wufeng/01.jpg" /></li>
+				<li><img src="js/img/wufeng/02.jpg" /></li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				var time = 0,
+					num = 0;
+
+				function runing() {
+				num+=2;
+					if (num == 1200) {
+						num = 0;
+					}
+					
+					$("ul").animate({
+						"right": num
+					}, 0);
+				}
+				time = setInterval(runing, 10);
+				$("ul li").mouseenter(function() {
+					clearInterval(time);
+					$(this).siblings("li").stop().fadeTo("slow",0.2);
+					$(this).fadeTo("slow",1);
+				}).mouseleave(function() {
+					time = setInterval(runing, 10);
+					$("ul li").stop().fadeTo("slow",1);
+				})
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="Jvs/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).ready(function(){
+				$("p>span").css("color","red");	
+				$("p+span").css("color","yellow");
+				$("p~span").css("color","blueviolet");
+			})
+		</script>
+	</head>
+	<body>
+		<p>1</p>
+		<p>2
+		<div>2-1
+		<span>2-1-1</span>
+		<span>2-1-2</span>
+		</div>
+		<div>2-2</div>
+		<div>2-3</div>
+		</p>
+		<span>6</span>
+		<p>3
+		<span>3-1</span>
+		<span>3-2</span>
+		</p>
+		<span>4</span>
+		<span>5</span>
+		
+	</body>
+</html>

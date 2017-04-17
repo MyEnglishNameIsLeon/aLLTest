@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.box{ width:350px;height:350px; background:url(images/xiaotu.jpg) no-repeat; border:1px solid #000; margin-left:100px; margin-top:100px; position:relative;}
+.box span{ width:150px;height:150px; background:#fcf; opacity:0.5; position:absolute; left:0;top:0; display:none;}
+.bigpic{ width:400px;height:400px; background:url(images/datu.jpg) no-repeat;border:1px solid #000;  position:absolute; left:380px;top:0; display:none;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var kaiguan;
+	$('.box').mouseenter(function(e) {
+		$('span,.bigpic').show()
+        kaiguan = 'kai';
+    }).mouseleave(function(e) {
+        $('span,.bigpic').hide()
+    });
+	/*
+	$(window).mouseup(function(e) {
+        kaiguan = 'guan';
+    });*/
+	
+	
+	
+	
+	$('.box').mousemove(function(e) {
+        if( kaiguan == 'kai'){
+			
+			var x =e.pageX-$('.box').offset().left-75;
+			var y =e.pageY-$('.box').offset().top-75;
+			if(x<0){x=0}
+			if(y<0){y=0}
+			if(x>$('.box').width()-150){x=$('.box').width()-150}
+			if(y>$('.box').height()-150){y=$('.box').height()-150}
+			
+			$('.box span').css({'left':x,'top':y})	
+			
+			var fangdax = -x*800/350
+			var fangday = -y*800/350
+			
+			
+			$('.bigpic').css('background-position',fangdax+'px '+fangday+'px')
+			
+			
+		}
+		
+		
+    });		
+})
+</script>
+</head>
+
+<body>
+<div class="box">
+	<span></span>
+    <div class="bigpic"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #f40;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="改变文本" />
+		<input type="button" value="访问文本" />
+		<input type="button" value="访问文本2" />
+		<div>
+			<h2>好恐怖啊</h2>
+			<p>确实很恐怖</p>
+		</div>
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script>
+			$(function() {
+				$("input:first-child").click(function() {
+					$("div").html("<h2>sssssssssssss</h2>");
+				})
+				$("input:nth-child(2)").click(function() {
+					console.log($("div").html());
+				})
+				$("input:nth-child(3)").click(function() {
+					alert($("div").text());
+					//					console.log("aaa");
+				})
+			})
+		</script>
+	</body>
+
+</html>

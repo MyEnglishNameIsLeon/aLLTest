@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var arr = [];
+				$('input').each(function(index, element) {
+					arr.push($(element).val())
+				});
+				// arr  现在是 [手机号码,邮箱,QQ,微信号码,新浪,网址]
+				$('input').focus(function(e) {
+					var selfIndex = $(this).index();
+					if ($(this).val() == arr[selfIndex]) {
+						$(this).val('')
+					}
+				}).blur(function(e) {
+					var selfIndex = $(this).index();
+					if ($(this).val() == '') {
+						$(this).val(arr[selfIndex])
+					}
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<input type="text" value="手机号码" />
+		<input type="text" value="邮箱" />
+		<input type="text" value="QQ" />
+		<input type="text" value="微信号码" />
+		<input type="text" value="新浪" />
+		<input type="text" value="网址" />
+	</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+div{ width:200px;height:200px; background:#fcf; border:1px solid #000; display:none;}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('button:eq(0)').click(function(e) {
+        $('div').fadeIn(400)
+    });
+	$('button:eq(1)').click(function(e) {
+        $('div').fadeOut(400)
+    });
+	$('button:eq(2)').click(function(e) {
+        $('div').fadeToggle(400)
+    });
+	
+})
+</script>
+</head>
+
+<body>
+<button>淡入</button>
+<button>淡出</button>
+<button>淡入淡出的切换</button>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			.baba,
+			.erzi {
+				width: 100px;
+				height: 100px;
+				background: #fcf;
+			}
+			
+			.baba {
+				position: relative;
+				z-index: 1;
+			}
+			
+			.erzi {
+				position: absolute;
+				z-index: 99999;
+			}
+			
+			.bofu {
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				margin-top: -30px;
+				z-index: 2;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="baba">
+			<div class="erzi"></div>
+		</div>
+		<div class="bofu"></div>
+	</body>
+
+</html>

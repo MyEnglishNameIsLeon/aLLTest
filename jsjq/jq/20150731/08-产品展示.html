@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none;}
+img{ display:block;}
+ul{ width:1000px; margin:100px auto;}
+li{ float:left; margin-right:20px; border:1px solid #ccc;}
+
+.bigger{ border:1px solid #ccc; position:absolute;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$('li').mouseenter(function(e) {
+        
+		
+		var biggerhref = $(this).children('a').attr('href')
+		
+		var bigger = $('<div class="bigger"><img src="'+biggerhref+'" width="400" height="300" /></div>')
+		
+		if($('.bigger').length==0){ 
+			$('body').append(bigger)
+			$('.bigger').css({'left':e.pageX+10,'top':e.pageY+20})
+			$('.bigger').hide().show(300)
+			
+		}
+    }).mousemove(function(e) {
+        
+		$('.bigger').css({'left':e.pageX+10,'top':e.pageY+20})
+		
+    }).mouseleave(function(e) {
+        $('.bigger').remove()
+    });
+})
+
+</script>
+</head>
+
+<body>
+<ul>
+	<li><a href="images/apple_3_bigger.jpg"><img src="images/apple_3.jpg" width="100" height="75" /></a></li>
+    <li><a href="images/apple_4_bigger.jpg"><img src="images/apple_4.jpg" width="100" height="75" /></a></li>
+    <li><a href="images/apple_3_bigger.jpg"><img src="images/apple_3.jpg" width="100" height="75" /></a></li>
+    <li><a href="images/apple_3_bigger.jpg"><img src="images/apple_3.jpg" width="100" height="75" /></a></li>
+    <li><a href="images/apple_3_bigger.jpg"><img src="images/apple_3.jpg" width="100" height="75" /></a></li>
+    <li><a href="images/apple_3_bigger.jpg"><img src="images/apple_3.jpg" width="100" height="75" /></a></li>
+</ul>
+<li></li>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+	<head>
+	<title>json</title>
+	<meta charset="utf-8">
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+	/**json格式
+			javascript object notation
+			
+			优点:
+				json比xml更加轻巧
+				json是javascript的原生态
+				
+			规则:
+				json的规则很简单:对象是一个无序的名称/值对
+				对象是一个无序的"名称/值"集合一个对象以"{"名称1:值,名称2:值"}"
+	**/
+	//数组形式
+		var pig=[{"name":"ss","old":12},{"name":"yy","old":16}]
+		console.log(pig[0].old);
+		console.log(pig[1].old);
+		
+		//服务器返回来得信息
+		//	var info="[{"属性名":"属性值"},{"属性名":"属性值"},{"属性名":"属性值"}]"
+		//转成对象数组
+		//var res=eval("("+返回来得对象数组+")");
+		//通过res可以取出数据里面的值
+		
+		
+		//第三种形式
+		var people={
+			"person":[
+				{"name":"leon","old":"18"},
+				{"huaname":"leonBB","old":"30"}
+			],
+			"work":[
+				{"name":"leon","old":"18"},
+				{"huaname":"leonBB","old":"30"}
+			]
+		}
+		//取值
+		console.log(people.work[1].huaname)
+		
+		//混用
+		var people02={
+			"person":[
+				{"name":"leon","old":"18"},
+				{"huaname":"leonBB","old":"30"}
+			],
+			"work":[
+				{"name":"leon","old":"18"},
+				{"huaname":"leonBB","old":"30"}
+			],
+			"name":"cs"
+		}
+		/**格式的优缺点:
+			json灵巧
+			缺点:
+			语法严谨
+			eval函数有一定的风险
+			
+			总结:
+			根据需求可以返回三种数据类型的格式,text,json,xml
+			1.如果没特殊要求建议使用json数据
+			2.若应用程序不需要与其他应用程序共享数据的时候使用html片段来返回时最简单的\
+			3.当远程应用程序未知时,xml文档是首选,因为xml是web服务选项领悟的  
+			json是关系到浏览器但是xml则不一定出现在浏览器xml是世界语言
+		**/
+	</script>
+</<html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #f40;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="按下我试下" />
+		<div></div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				$("input").click(function() {
+					$("div").animate({
+						"top": 20
+					}, 500).delay(400).animate({
+						"background": "#f40"
+					}, 400);
+				})
+			})
+		</script>
+	</body>
+	<!--
+	动作
+	way01:
+	animate({"attr":val},秒数);
+	animate({"attr":val,"attr":val},秒数);
+	动作的定时
+	delay(time)
+	动作的停止
+	stop()
+	动作的针对范围
+	1.文字的放大缩小
+	2.box的位置移动要配合position:relative/absoult
+	
+	宿主对象
+	document,window(BOM) 
+	宿主对象的属性
+	E.pageY
+	E.pageX
+	
+	each是专门搞
+
+-->
+
+</html>

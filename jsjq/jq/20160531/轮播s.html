@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			div {
+				width: 650px;
+				height: 250px;
+				overflow: hidden;
+				position: relative;
+				border: 1px solid #000000;
+				margin: 200px auto;
+			}
+			
+			ul {
+				position: relative;
+				left: 0;
+				padding: 0;
+				z-index: 1;
+			}
+			
+			ul li {
+				position: absolute;
+			}
+			
+			.curimg {
+				z-index: 1;
+			}
+			
+			ol {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+				z-index: 2;
+			}
+			
+			ol li {
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border: 1px solid #000;
+				text-align: center;
+				line-height: 20px;
+				margin-right: 20px;
+				float: left;
+			}
+			
+			.curli {
+				width: 25px;
+				height: 25px;
+				line-height: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<ul>
+				<li class="curimg"><img src="img/01.jpg" /></li>
+				<li><img src="img/02.jpg" /></li>
+				<li><img src="img/03.jpg" /></li>
+				<li><img src="img/04.jpg" /></li>
+				<li><img src="img/05.jpg" /></li>
+			</ul>
+			<ol>
+				<li class="curli">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				var time = 0,
+					count = 0,
+					zIndex = 0,
+					timerun;
+
+				function zbannerplay() {
+					count++;
+					zIndex++;
+					if (count > $("ul li").length - 1) {
+						count = 0;
+					}
+					$("ul li").eq(count).css({
+						"left": 650,
+						"z-index": zIndex
+					}).stop().animate({
+						"left": 0
+					});
+					$("ol li").eq(count).addClass("curli").siblings().removeClass("curli");
+				}
+				clearInterval(time);
+				time = setInterval(zbannerplay, 2000);
+				$("ol li").mouseenter(function() {
+					zIndex++;
+					var curobj = $(this);
+					timerun = setTimeout(function() {
+							if (!curobj.hasClass("curli")) {
+								console.log("sss")
+								curobj.addClass("curli").siblings().removeClass("curli");
+								$("ul li").eq(curobj.index()).css({
+									"left": 650,
+									"z-index": zIndex
+								}).stop().animate({
+									"left": 0
+								});
+								count = curobj.index();
+							}
+						}, 150)
+											clearInterval(time);
+				}).mouseleave(function() {
+					clearTimeout(timerun);
+					time = setInterval(zbannerplay, 2000);
+				})
+			})
+		</script>
+	</body>
+
+</html>

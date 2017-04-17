@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				padding: 10px;
+				border: 1px solid #6495ED;
+				width: 428px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<textarea rows="20" cols="50" id="content"></textarea>
+			<br/>
+			<input type="button" name="" id="btn" value="请输入文字" />
+			<ul></ul>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script>
+			$(window).load(function() {
+				$("#btn").click(function() {
+					var font = $("#content").val();
+					if (font != "") {
+						var showfont = "<li>" + font + "</li>";
+						$("ul").prepend(showfont);
+						$("ul li:first-child").hide().slideDown(200);
+					} else {
+						alert("不为空")
+					}
+				})
+			})
+		</script>
+	</body>
+
+</html>

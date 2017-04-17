@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			ol {
+				position: fixed;
+				left: 100px;
+				top: 100px;
+			}
+			
+			ol li {
+				width: 100px;
+				height: 100px;
+				background: #ccc;
+				line-height: 100px;
+				text-align: center;
+				border: 1px solid #000;
+				font-size: 30px;
+				cursor: pointer;
+			}
+			
+			ol li.current {
+				background: #fcf;
+			}
+			
+			html {
+				height: 100%;
+			}
+			
+			body {
+				height: 100%;
+			}
+			
+			ul {
+				height: 100%;
+				text-align: center;
+				font-size: 40px;
+			}
+			
+			ul li {
+				width: 100%;
+				height: 100%;
+				background: #0CC;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var bgcolors = ['pink', 'red', 'blue', 'green', 'yellow']
+				$('ul li').each(function(index, element) {
+					$(element).css('background', bgcolors[index])
+				});
+				$('ol li').click(function(e) {
+					$(this).addClass('current').siblings().removeClass('current')
+					var winH = $(window).height()
+					var selfIndex = $(this).index()
+					$('body').stop().animate({
+						scrollTop: winH * selfIndex
+					}, 500)
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<ul>
+			<li>首页</li>
+			<li>关注</li>
+			<li>动态</li>
+			<li>风格</li>
+			<li>作品</li>
+		</ul>
+		<ol>
+			<li class="current">首页</li>
+			<li>关注</li>
+			<li>动态</li>
+			<li>风格</li>
+			<li>作品</li>
+		</ol>
+	</body>
+
+</html>

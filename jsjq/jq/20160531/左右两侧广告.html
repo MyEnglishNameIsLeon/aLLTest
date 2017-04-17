@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.right,
+			.left {
+				width: 100px;
+				height: 200px;
+				background: #222222;
+				position: absolute;
+			}
+			
+			.right {
+				right: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="left" id="box"></div>
+		<div class="right" id="box"></div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(function() {
+			
+	$(window).scroll(function(e) {
+        var winST = $(window).scrollTop();
+        console.log("winst:"+winST)
+		var winH = $(window).height();
+		console.log("winH:"+winH)
+		var divH = $('div').height();
+		console.log(divH)
+//		console.log("div:"+divH)
+		var divT = winST + 0.5*(winH-divH);
+		console.log("divT"+divT)
+		$('div').stop().animate({'top':divT},1000)
+    });
+					for (var i = 0; i < 100; i++) {
+					$("body").append("<div>" + i + "</div>")
+				}
+			})
+		</script>
+	</body>
+
+</html>

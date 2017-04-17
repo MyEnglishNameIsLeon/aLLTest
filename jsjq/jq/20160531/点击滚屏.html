@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			body {
+				height: 100%;
+			}
+			
+			html {
+				height: 100%;
+			}
+			
+			ol {
+				height: 100%;
+			}
+			
+			ol li {
+				width: 100%;
+				height: 100%;
+			}
+			
+			ul {
+				position: fixed;
+				left: 50px;
+				top: 50px;
+			}
+			
+			ul li {
+				cursor: pointer;
+				width: 100px;
+				height: 50px;
+				line-height: 50px;
+				border: 1px solid #6495ED;
+				text-align: center;
+			}
+			
+			ul li+li {
+				margin-top: -1px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li>第一页</li>
+			<li>第二页</li>
+			<li>第三页</li>
+			<li>第四页</li>
+		</ul>
+		<ol>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ol>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				var pColor = ["#f40", "blue", "#666", "#ccc"];
+				$("ol li").each(function(ind, element) {
+					$(element).css({
+						"background": pColor[ind]
+					})
+				})
+				$(window).scroll(function() {})
+				$("ul li").click(function() {
+					var num = $(this).index();
+					var winH = $(window).height();
+					$("body").animate({
+						scrollTop: winH * num
+					}, 400);
+					console.log(winH)
+					console.log(num)
+				})
+			})
+		</script>
+	</body>
+
+</html>

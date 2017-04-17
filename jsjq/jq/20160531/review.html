@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 300px;
+				height: 300px;
+				border: 1px solid #f40;
+			}
+			
+			.box {
+				background: #666;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="隐藏" />
+		<input type="button" value="显示" />
+		<input type="button" value="切换" />
+		<div></div>
+		<input type="button" value="样式切换" />
+		<div class="box"></div>
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script>
+			$(window).load(function() {
+				//				$("input:eq(0)").click(function() {
+				//					$("div:eq(0)").hide(300);
+				//				})
+				//切换模式
+				$("input").eq(0).click(function() {
+					$("div").eq(0).hide(300);
+				})
+				$("input").eq(1).click(function() {
+					$("div").eq(0).show(300);
+				})
+				$("input").eq(2).click(function() {
+						$("div").eq(0).toggle(300);
+					})
+					//改变样式
+				$("input").eq(3).click(function() {
+					$("div").eq(1).css("height", 100); //单属性改变
+					//					$("div").eq(1).css({"height":50,"width":100});//多属性改变
+					console.log($("div").eq(1).css("height")); //访问样式
+				})
+			})
+		</script>
+	</body>
+	<!--
+		左上角隐藏，显示，切换
+		隐藏
+		hide(time)
+		显示
+		show(time)
+		切换
+		toggle(time)
+			
+		
+		上下滑动隐藏和显示
+		类似窗帘的动作
+		显示->从下往上隐藏
+		slideUp
+		隐藏->从上往下显示
+		slideDown
+		切换->切换状态
+		slideToggle
+		
+		
+		淡入淡出
+		fadeIn(time)//淡入
+		fadeOut(time)//淡出
+		fadeToggle(time)//淡入淡出切换
+		fadeTo(time,透明度)//半透明显示方式  1~0区间透明度
+		
+		jq基础选择器
+		+
+		>
+		~
+		jq过滤选择器
+		当在字符串里面就只能填0以上的数字
+		当在外部的eq就能填写整数
+		:eq(number)
+		:first
+		:last
+		:not()//除了第几个被剔除
+		:even//从0开始算起，所有的偶数
+		:odd//从0开始算起，所有的奇数
+		:gt(number)//匹配所有大于的数值,从0开始算起不包含number的数字
+		:lt(number)//匹配所有小于的数值,从0开始算起不包含number数字
+		jq筛选选择器
+		siblings("")
+		children("")
+		parents("")
+		
+		改变文本->eg01
+		html("string")
+		访问文本text()   （不会显示里面的标签）
+		
+		
+		属性访问attr
+		css改变样式外貌
+		添加属性->eg02
+		attr
+		01.可以添加不同的属性
+		02.可以访问属性
+		03.可以获取多属性添加
+	-->
+
+</html>

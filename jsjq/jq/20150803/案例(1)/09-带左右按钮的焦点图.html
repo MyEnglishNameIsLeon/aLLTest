@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none;}..
+img{ display:block;}..
+.scroll{ width:400px;height:307px; border:5px solid #ccc; margin:100px auto; position:relative;}..
+.show{ position:relative; width:400px;height:307px; overflow:hidden; }..
+.scroll ul{ width:9999px; position:absolute; left:0; top:0;}
+.scroll ul li{ float:left;}
+span{ width:52px;height:52px; background:url(images/niao/arr.png) no-repeat; position:absolute; top:50%; margin-top:-26px; left:-21px; cursor:pointer;}
+.btnright{ right:-21px; left:auto; background:url(images/niao/arr.png) no-repeat right top;}
+.scroll ol{ position:absolute; bottom:-26px;left:50%; margin-left:-69px; width:138px;} 
+.scroll ol li{ width:13px;height:13px; background:url(images/niao/00.png) no-repeat; float:left; margin:0 5px; cursor:pointer;}
+.scroll ol li.current{ background:url(images/niao/00.png) no-repeat left bottom;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var num = 0;
+	var timer;
+	/*角标的工作*/
+	$('.scroll ol li').mouseenter(function(e) {
+        $(this).addClass('current').siblings().removeClass('current')
+		var selfIndex = $(this).index()
+		$('.scroll ul').stop().animate({'left':selfIndex*-400},500)
+		
+		num = selfIndex;
+    });
+	
+	
+	/*自动播放功能*/
+	function autoplay(){
+		num++;
+	
+		if(num>5){
+			num=0
+		}
+	
+		$('.scroll ul').stop().animate({'left':num*-400},500)
+		$('.scroll ol li').eq(num).addClass('current').siblings().removeClass('current')
+		
+	}
+	timer = setInterval(autoplay,2000)
+	
+	
+	/*按钮*/
+	$('.btnright').click(function(e) {
+         autoplay()
+    });
+	$('.btnleft').click(function(e) {
+        num--;
+		if(num<0){
+			num=5
+		}
+		$('.scroll ul').stop().animate({'left':num*-400},500)
+		$('.scroll ol li').eq(num).addClass('current').siblings().removeClass('current')
+		 
+    });
+	
+	
+	
+	/*鼠标移上关闭定时器*/
+	$('.scroll').hover(function(){
+		clearInterval(timer)
+	},function(){
+		timer = setInterval(autoplay,2000)
+	})
+	
+		
+})
+</script>
+
+</head>
+
+<body>
+<div class="scroll">
+	<div class="show">
+        <ul>
+            <li><img src="images/niao/01.jpg" width="400" height="307" /></li>
+            <li><img src="images/niao/02.jpg" width="400" height="307" /></li>
+            <li><img src="images/niao/03.jpg" width="400" height="307" /></li>
+            <li><img src="images/niao/04.jpg" width="400" height="307" /></li>
+            <li><img src="images/niao/05.jpg" width="400" height="307" /></li>
+            <li><img src="images/niao/06.jpg" width="400" height="307" /></li>
+        </ul>
+    </div>
+    <ol>
+    	<li class="current"></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    </ol>
+    <span class="btnleft"></span>
+    <span class="btnright"></span>
+</div>
+</body>
+</html>

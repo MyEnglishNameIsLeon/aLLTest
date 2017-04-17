@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		模仿eg
+		<form action="">
+			<input type="text" onkeyup="ajaxway(this.value)" />
+			<p>输出:<span id="textShow"></span></p>
+		</form>
+		<script type="text/javascript">
+			function ajaxway(str) {
+				var xmlhttp;
+				if (str.length == 0) {
+					document.getElementById("textShow").innerHTML = "";
+					return;
+				}
+				if (window.XMLHttpRequest) {
+					xmlhttp = new XMLHttpRequest();
+				} else {
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
+						document.getElementById("textShow").innerHTML = xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET", "data.php?q=" + str, true);
+				xmlhttp.send();
+			}
+		</script>
+	</body>
+
+</html>

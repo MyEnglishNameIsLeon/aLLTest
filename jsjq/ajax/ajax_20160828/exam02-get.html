@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h1>AJAX</h1>
+		<button id="请求数据" onclick="AJAXclick()">请求数据</button>
+		<p id="showContent"></p>
+		<script type="text/javascript">
+			var xmlhttp;
+
+			function AJAXclick() {
+				if (window.XMLHttpRequest) {
+					xmlhttp = new XMLHttpRequest();
+				} else {
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
+						document.getElementById("showContent").innerHTML = xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET", "js/success.html?t=" + Math.random(), true);
+				xmlhttp.send();
+			}
+		</script>
+	</body>
+
+</html>

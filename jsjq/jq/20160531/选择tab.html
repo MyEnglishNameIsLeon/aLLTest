@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			img {
+				display: block;
+			}
+			
+			div {
+				margin: 100px auto;
+				width: 400px;
+				height: 400px;
+				border: 1px solid #000;
+				padding: 10px 0 0 10px;
+				position: relative;
+			}
+			
+			ul li {
+				position: absolute;
+				left: 40px;
+				top: 40px;
+			}
+			
+			
+			ol li {
+				float: right;
+				padding: 0 10px 10px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<ul>
+				<li class="curtp">
+					<a href="#"><img src="img/texiao/01big.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/texiao/02big.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/texiao/03big.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/texiao/04big.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/texiao/05big.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/texiao/06big.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/texiao/07big.jpg" /></a>
+				</li>
+			</ul>
+			<ol>
+				<li>
+					<a href=""><img src="img/texiao/01.jpg" /></a>
+				</li>
+				<li>
+					<a href=""><img src="img/texiao/02.jpg" /></a>
+				</li>
+				<li>
+					<a href=""><img src="img/texiao/03.jpg" /></a>
+				</li>
+				<li>
+					<a href=""><img src="img/texiao/04.jpg" /></a>
+				</li>
+				<li>
+					<a href=""><img src="img/texiao/05.jpg" /></a>
+				</li>
+				<li>
+					<a href=""><img src="img/texiao/06.jpg" /></a>
+				</li>
+				<li>
+					<a href=""><img src="img/texiao/07.jpg" /></a>
+				</li>
+			</ol>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				$("ol li:lt(3)").css({
+					"margin-left": 300
+				});
+			})
+		</script>
+	</body>
+
+</html>

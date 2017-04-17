@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$('button:eq(0)').click(function(e) {
+        $('div:eq(0)').css('width',200);
+		$('div:eq(0)').css('height',200);
+		$('div:eq(0)').css('background','#fcf');
+    });
+	$('button:eq(1)').click(function(e) {
+        alert($('div:eq(0)').css('height'))
+    });
+	$('button:eq(2)').click(function(e) {
+        $('div:eq(0)').css({'height':500,'background':'#cff'})
+    });
+	
+		
+})
+</script>
+</head>
+
+<body>
+<button>单属性修改</button>
+<button>访问属性</button>
+<button>多属性修改</button>
+<div>盒子</div>
+</body>
+</html>

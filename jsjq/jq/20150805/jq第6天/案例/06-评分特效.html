@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			div {
+				width: 135px;
+				height: 60px;
+				margin: 100px auto;
+			}
+			
+			li {
+				width: 27px;
+				height: 28px;
+				background: url(images/star.gif) no-repeat;
+				float: left;
+				cursor: pointer;
+			}
+			
+			li.current {
+				background: url(images/star.gif) no-repeat left bottom;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var fenshu = 1;
+				$('li').click(function(e) {
+					var selfIndex = $(this).index();
+					$('li:lt(' + (selfIndex + 1) + ')').addClass('current')
+					$('li:not(:lt(' + (selfIndex + 1) + '))').removeClass('current')
+					$('span').html(selfIndex + 1)
+					fenshu = selfIndex + 1;
+				}).mouseenter(function(e) {
+					var selfIndex = $(this).index();
+					$('li:lt(' + (selfIndex + 1) + ')').addClass('current')
+					$('li:not(:lt(' + (selfIndex + 1) + '))').removeClass('current')
+				}).mouseleave(function(e) {
+					var selfIndex = $(this).index();
+					$('li:lt(' + fenshu + ')').addClass('current');
+					$('li:not(:lt(' + fenshu + '))').removeClass('current');
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<ul>
+				<li class="current"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<p>您的评分为：<span></span></p>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none;}
+img{ display:block; border:0;}
+.banner{ width:992px;height:420px; background:red; margin:100px auto;position:relative; overflow:hidden;}
+.banner ul{ position:relative; z-index:1;}
+.banner ul li{ position:absolute;}
+.banner ol{ position:absolute; right:10px; bottom:10px; z-index:2;}
+.banner ol li{ float:left; margin-left:8px; width:30px;height:20px; border:1px solid #fff; color:#000; line-height:20px ; text-align:center;  cursor:pointer;}
+.banner ol li.current{ background:#fcf;}
+
+span{ width:40px;height:70px; background:url(img/images/arr.png) no-repeat; position:absolute; top:50%; margin-top:-35px; left:0; cursor:pointer; z-index: 99; display:none;}
+.btnright{ right:0px; left:auto; background:url(img/images/arr.png) no-repeat right top;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.banner ul li:first').css('z-index',1)
+	
+	
+	var num = 0;
+	var timer;
+	
+	var myzindex = 1;  
+	$('.banner ol li').mouseenter(function(e) {
+		
+		
+		if(!$(this).hasClass('current')){ 
+			//角标的工作
+			$(this).addClass('current').siblings().removeClass('current')
+			
+			//大图的工作
+			myzindex++;
+			$('.banner ul li').eq($(this).index()).css({'z-index':myzindex}).hide().fadeIn(500)
+			
+			num = $(this).index();
+		}
+    });
+	
+	
+	function autoplay(){
+		num++;
+		if(num>4){
+			num=0
+		}
+		myzindex++;
+		$('.banner ul li').eq(num).css({'z-index':myzindex}).hide().fadeIn(500)
+		
+		$('.banner ol li').eq(num).addClass('current').siblings().removeClass('current')
+		
+	}
+
+	timer = setInterval(autoplay,2000)
+	
+	$('.banner').hover(function(){
+		$('span').show()
+		clearInterval(timer)
+	},function(){
+		$('span').hide()
+		
+		timer = setInterval(autoplay,2000)
+	})
+	
+	
+	
+	/*按钮*/
+	$('.btnright').click(function(e) {
+         autoplay()
+    });
+	$('.btnleft').click(function(e) {
+        num--;
+		if(num<0){
+			num=4
+		}
+		myzindex++;
+		$('.banner ul li').eq(num).css({'z-index':myzindex}).hide().fadeIn(500)
+		
+		$('.banner ol li').eq(num).addClass('current').siblings().removeClass('current')
+		 
+    });
+})
+</script>
+
+</head>
+
+<body>
+<div class="banner">
+	<ul>
+    	<li><a href="#"><img src="img/images/1.jpg" width="992" height="420" /></a></li>
+        <li><a href="#"><img src="img/images/2.jpg" width="992" height="420" /></a></li>
+        <li><a href="#"><img src="img/images/3.jpg" width="992" height="420" /></a></li>
+        <li><a href="#"><img src="img/images/4.jpg" width="992" height="420" /></a></li>
+        <li><a href="#"><img src="img/images/5.jpg" width="992" height="420" /></a></li>
+    </ul>
+    <ol>
+   	  	<li class="current">1</li>
+    	<li>2</li>
+    	<li>3</li>
+    	<li>4</li>
+    	<li>5</li>
+    </ol>
+    <span class="btnleft"></span>
+    <span class="btnright"></span>
+</div>
+</body>
+</html>

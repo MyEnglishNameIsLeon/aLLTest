@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background: #fcf;
+				border: 1px solid #000;
+			}
+		</style>
+		<!--<script type="text/javascript">
+window.onload= function(){
+	var btns = document.getElementsByTagName('button')
+	var divs = document.getElementsByTagName('div')
+	
+	btns[0].onclick = function(){
+		divs[0].style.display = 'none';	
+	}
+}
+</script>-->
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('button:eq(0)').click(function() {
+					$('div:eq(0)').hide(300)
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<button>隐藏按钮</button>
+		<div></div>
+	</body>
+
+</html>

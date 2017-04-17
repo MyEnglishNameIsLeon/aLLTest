@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.kuang {
+				width: 400px;
+				height: 307px;
+				border: 10px solid #6495ED;
+				margin: 100px auto;
+				position: relative;
+			}
+			
+			ul {
+				width: 9999px;
+				position: relative;
+			}
+			
+			ul li {
+				float: left
+			}
+			
+			.rightbtn,
+			.leftbtn {
+				background: url(img/niao/arr.png) no-repeat;
+				position: absolute;
+				width: 52px;
+				height: 52px;
+				left: -25px;
+				top: 50%;
+				margin-top: -26px;
+				z-index: 1;
+			}
+			
+			.rightbtn {
+				background-position: -52px 0;
+				left: auto;
+				right: -25px;
+			}
+			
+			.banner {
+				width: 400px;
+				height: 307px;
+				overflow: hidden;
+			}
+			
+			ol {
+				position: absolute;
+				bottom: 5px;
+				right: 50%;
+				margin-right: -53px;
+			}
+			
+			.curbtn,
+			ol li {
+				float: left;
+				background: url(img/niao/00.png) no-repeat;
+				width: 13px;
+				height: 13px;
+				overflow: hidden;
+				margin-right: 10px;
+			}
+			
+			.curbtn {
+				background-position: 0 -26px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="kuang">
+			<div class="leftbtn"></div>
+			<div class="rightbtn"></div>
+			<div class="banner">
+				<ul>
+					<li><img src="img/niao/01.jpg" /></li>
+					<li><img src="img/niao/02.jpg" /></li>
+					<li><img src="img/niao/03.jpg" /></li>
+					<li><img src="img/niao/04.jpg" /></li>
+					<li><img src="img/niao/05.jpg" /></li>
+					<li><img src="img/niao/06.jpg" /></li>
+					<li><img src="img/niao/01.jpg" /></li>
+				</ul>
+			</div>
+			<ol>
+				<li class="curbtn"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js">
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				var time = 0,
+					num = 0,
+					sub = 0;
+
+				function bannerRun() {
+					num++;
+					sub++;
+					if (num > $(".banner ul li").length - 1) {
+						$(".banner ul").css({
+							"left": 0
+						});
+						num = 1;
+					}
+					if (sub > $("ol li").length - 1) {
+						sub = 0;
+					}
+					$(".kuang ol li").eq(sub).addClass("curbtn").siblings().removeClass("curbtn");
+					$(".banner ul").stop().animate({
+						"left": -num * 400
+					}, 500);
+				}
+				time = setInterval(bannerRun, 2000);
+				$("ol li").click(function() {
+					$(this).addClass("curbtn").siblings().removeClass("curbtn");
+					$(".banner ul").stop().animate({
+						"left": -$(this).index() * 400
+					}, 500);
+					sub = $(this).index();
+					num = $(this).index();
+				}).mouseenter(function() {
+					clearInterval(time);
+				}).mouseleave(function() {
+					time = setInterval(bannerRun, 2000);
+				})
+				$(".rightbtn").click(function() {
+					bannerRun();
+				}).mouseenter(function() {
+					clearInterval(time);
+				}).mouseleave(function() {
+					time = setInterval(bannerRun, 2000);
+				})
+				$(".leftbtn").click(function() {
+					num--;
+					sub--;
+					if (num < 0) {
+						num = $("ol li").length - 1;
+						$(".banner ul").css({
+							"left": -2400
+						});
+					}
+					if (sub < 0) {
+						sub = 5;
+					}
+					$(".banner ul").stop().animate({
+						"left": -num * 400
+					}, 500);
+					$("ol li").eq(sub).addClass("curbtn").siblings().removeClass("curbtn");
+				}).mouseenter(function() {
+					clearInterval(time);
+				}).mouseleave(function() {
+					time = setInterval(bannerRun, 2000);
+				})
+			})
+		</script>
+	</body>
+
+</html>

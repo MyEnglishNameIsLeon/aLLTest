@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			img {
+				display: block;
+				border: 0;
+			}
+			
+			.scroll {
+				width: 490px;
+				height: 170px;
+				border: 1px solid #000;
+				margin: 100px auto;
+				padding: 5px;
+			}
+			
+			.scroll-in {
+				position: relative;
+				height: 170px;
+				/*overflow: hidden;*/
+			}
+			
+			.scroll ul {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.scroll ol {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			
+			.scroll ol li {
+				float: left;
+				margin-left: 10px;
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border: 1px solid #ccc;
+				line-height: 20px;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.scroll ol li.current {
+				background: #fcf;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var num = 0;
+				var timer;
+				$('.scroll ol li').mouseenter(function(e) {
+					$(this).addClass('current').siblings().removeClass('current')
+					var selfIndex = $(this).index()
+					$('.scroll ul').stop().animate({
+						'top': selfIndex * -170
+					})
+					num = selfIndex
+				});
+
+				function autoplay() {
+					num++;
+					if (num > 4) {
+						num = 0
+					}
+					$('.scroll ul').stop().animate({
+						'top': num * -170
+					})
+					$('.scroll ol li').eq(num).addClass('current').siblings().removeClass('current')
+				}
+				timer = setInterval(autoplay, 2000)
+				$('.scroll-in').hover(function() {
+					clearInterval(timer)
+				}, function() {
+					timer = setInterval(autoplay, 2000)
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="scroll">
+			<div class="scroll-in">
+				<ul>
+					<li>
+						<a href="#"><img src="img/taobao/01.jpg" width="490" height="170" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/taobao/02.jpg" width="490" height="170" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/taobao/03.jpg" width="490" height="170" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/taobao/04.jpg" width="490" height="170" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/taobao/05.jpg" width="490" height="170" /></a>
+					</li>
+				</ul>
+				<ol>
+					<li class="current">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ol>
+			</div>
+		</div>
+	</body>
+
+</html>
